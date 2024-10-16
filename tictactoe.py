@@ -15,6 +15,10 @@ screen.fill(BG_COLOR)
 # Initialisation du tableau de jeu (plateau de 3x3, rempli de zéros)
 board = np.zeros((BOARD_ROWS, BOARD_ROWS))
 
+# ---------
+# FONCTIONS
+# ---------
+
 # Fonction pour dessiner les lignes du plateau
 def draw_lines():
     # Première ligne horizontale
@@ -117,8 +121,17 @@ def restart():
             board[row][col] = 0
 
 draw_lines()  # Dessine les lignes au début du jeu
+
+# ---------
+# VARIABLES
+# ---------
+
 player = 1  # Le joueur 1 commence (cercles)
 game_over = False  # Statut du jeu, à vrai si la partie est terminée
+
+# --------
+# ECRAN FIN DE JEU
+# --------
 
 # Fonction pour afficher l'écran de fin de jeu (gagnant ou match nul)
 def display_end_screen(player):
@@ -165,7 +178,10 @@ def display_end_screen(player):
         screen.blit(text_restart, (WIDTH // 2 - text_restart.get_width() // 2, HEIGHT // 2 + 100))
         screen.blit(text_quit, (WIDTH // 2 - text_quit.get_width() // 2, HEIGHT // 2 + 140))
 
-# Mainloop
+# --------
+# MAINLOOP
+# --------
+
 while True:
     # Parcourt tous les événements possibles
     for event in pygame.event.get():
